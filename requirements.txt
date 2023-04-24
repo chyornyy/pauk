@@ -1,0 +1,4 @@
+ping3==4.0.4
+aiogram==2.25.1
+requests==2.28.2
+python3-nmap==1.6.0
