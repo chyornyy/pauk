@@ -101,7 +101,11 @@ def main():
             if open_ports:
                 message += f"IP Address {ip_address} is live.\nOpen ports: {open_ports}\n\n"
                 message += f"City: {data['city']}\nRegion: {data['region']}\nCountry: {data['country']}\n"
-                message += f"Timezone: {data['timezone']}\nPostal: {data['postal']}\n\n"
+                message += f"Timezone: {data['timezone']}\n"
+                if 'postal' in data:
+                    message += f"Postal: {data['postal']}\n\n"
+                else:
+                    message += "Postal: Unknown\n\n"
                 if 'hostname' in data:
                     message += f"Hostname: {data['hostname']}\n"
                 else:
