@@ -65,6 +65,10 @@ Current chat ID: <chat_id>
 ## Note: It is important to keep your bot token and chat ID secure, as they can be used to access your bot and potentially sensitive information.
 
 ## Usage
+Activate virtual environment with
+```
+source venv/bin/activate
+```
 ```
 python3 payk.py <ip_range> --ports <ports> --token <bot_token> --chat <chat_id> -d
 ```
