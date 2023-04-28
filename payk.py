@@ -3,13 +3,15 @@ from aiogram.utils import executor
 import argparse
 import ipaddress
 import nmap3
+import requests
+import time
 import socket
 import subprocess
-import requests
 import tqdm
 
-nmap = nmap3.Nmap()
+import functions as fn
 
+nmap = nmap3.Nmap()
 
 def parse_arguments():
     parser = argparse.ArgumentParser(description='Scan a range of IP addresses for open ports and send the results to Telegram.')
@@ -75,7 +77,11 @@ def main():
     # Loop through each IP address in the range and perform ping and port scanning
     total_ips = ip_range.num_addresses
     with tqdm.tqdm(total=total_ips, desc='Scanning IPs') as progress_bar:
+        start_time = time.time()
+        alive_hosts_amount = 0
+        checked_hosts_amount = 0
         for ip_address in ip_range:
+            checked_hosts_amount += 1
             if args.debug:
                 print(f'Scanning IP: {ip_address}')
 
@@ -89,8 +95,9 @@ def main():
 
             # If the IP address is live, perform port scanning
             with tqdm.tqdm(total=len(port_range), desc=f'Scanning ports of {ip_address}') as port_bar:
+                alive_hosts_amount += 1
                 open_ports = scan_ports(str(ip_address), port_range, args, port_bar)
-
+            
             # Collect the IP information using ipinfo.io API
             response = requests.get(f"https://ipinfo.io/{ip_address}/json")
             data = response.json()
@@ -122,7 +129,9 @@ def main():
                     except Exception as e:
                         if args.debug:
                             print(f"Error sending message to Telegram: {str(e)}")
-                print("Scan complete.")
+                end_time = time.time()
+                time_taken = int(end_time - start_time)
+                print(f"Scan complete!\nScanning Time: {fn.format_time(time_taken)}.\nTotal hosts scanned: {checked_hosts_amount}.\nFound hosts alive: {alive_hosts_amount}.")
 
 
 def ping(ip_address):
