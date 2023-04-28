@@ -1,5 +1,5 @@
 # 🕷🕸 ПАУК (Spider)
-IP Scanner and Port Checker with Telegram Notifications
+CLI IP Scanner and Port Checker with Telegram Notifications
 
 ## 🚧 Disclaimer
 The program provided is intended for educational and research purposes only. It may involve techniques that may violate the laws of information security and privacy of private data. The creators and maintainers of this program do not condone or support any illegal activities.
