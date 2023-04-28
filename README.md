@@ -19,11 +19,11 @@ By using this program, you agree to the terms and conditions outlined in this di
 ### Installation for Linux
 1. Open a terminal and clone the repository to your local machine.
 ```
-git clone https://github.com/chyornyy/payk.git
+git clone https://github.com/chyornyy/pauk.git
 ```
 2. Navigate to the project directory.
 ```
-cd payk
+cd pauk
 ```
 3. Run the setup script.
 ```
@@ -32,11 +32,11 @@ chmod +x setup.sh && ./setup.sh
 ### Installation for MacOS
 1. Open a terminal and clone the repository to your local machine.
 ```
-git clone https://github.com/chyornyy/payk.git
+git clone https://github.com/chyornyy/pauk.git
 ```
 2. Navigate to the project directory.
 ```
-cd payk
+cd pauk
 ```
 3. Run the setup script.
 ```
@@ -70,7 +70,7 @@ Activate virtual environment with
 source venv/bin/activate
 ```
 ```
-python3 payk.py <ip_range> --ports <ports> --token <bot_token> --chat <chat_id> -d
+python3 pauk.py <ip_range> --ports <ports> --token <bot_token> --chat <chat_id> -d
 ```
 #### The arguments are described below:
 ```
@@ -93,21 +93,21 @@ python3 payk.py <ip_range> --ports <ports> --token <bot_token> --chat <chat_id> 
 #### Example 1: Scan a range of IP addresses for open ports and send the results to a Telegram chat:
 Suppose you want to scan a range of IP addresses and send the results to a Telegram chat. You can use this program by providing the IP address range and Telegram bot token and chat ID as arguments. Here is an example command:
 ```
-python3 payk.py 192.168.0.0/24 -p 80,443 -t <bot_token> -c <chat_id>
+python3 pauk.py 192.168.0.0/24 -p 80,443 -t <bot_token> -c <chat_id>
 ```
 This command will scan the IP addresses in the range 192.168.0.0/24 on ports 80 and 443 and send the results to the specified Telegram chat.
 
 #### Example 2: Scan a single IP address for open ports:
 If you want to scan a single IP address for open ports, you can use this program by providing the IP address and port range as arguments. Here is an example command:
 ```
-python3 payk.py 192.168.0.1 -p 1-65535 -t <bot_token> -c <chat_id>
+python3 pauk.py 192.168.0.1 -p 1-65535 -t <bot_token> -c <chat_id>
 ```
 This command will scan the IP address 192.168.0.1 on all ports between 1 and 65535.
 
 #### Example 3: Scan a range of IP addresses and ports and print the results and debugging info to the console:
 If you want to print the results of the port scan to the console, you can use this program by providing the IP address range and port range as arguments. Here is an example command:
 ```
-python3 payk.py 192.168.0.0/24 -p 1-1024 -t <bot_token> -c <chat_id> -d
+python3 pauk.py 192.168.0.0/24 -p 1-1024 -t <bot_token> -c <chat_id> -d
 ```
 This command will scan the IP addresses in the range 192.168.0.0/24 on ports from 1 to 1024 and print the results to the console.
 
